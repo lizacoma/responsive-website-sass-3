@@ -1,0 +1,34 @@
+@media screen and (max-width: 768px) {
+  body header nav {
+    justify-content: space-around;
+    padding: 3% 0;
+    max-width: 100%; }
+    body header nav .logo {
+      height: 100%; }
+    body header nav .burger {
+      min-width: 60%; }
+      body header nav .burger ul.navigation-wrapper li a {
+        font-size: 1.5vw; }
+  body header .welcome-text-wrapper {
+    width: 100%; }
+    body header .welcome-text-wrapper h1 {
+      font-size: 2.5vw; }
+    body header .welcome-text-wrapper p {
+      padding: 1% 8%;
+      font-size: 1.8vw; }
+  body header button {
+    padding: 10px 40px; }
+  body main section.properties-wrapper {
+    margin: 5% 0; }
+  body main section.all-profiles {
+    padding: 0 6%; }
+  body main section.download-application {
+    overflow: hidden; }
+    body main section.download-application .slider-wrapper img {
+      width: 60%; }
+    body main section.download-application .slider-wrapper .slider .text-wrapper p:nth-child(2) {
+      font-size: 1.3vw; }
+    body main section.download-application .slider-wrapper .circles-wrapper {
+      right: 16%; }
+    body main section.download-application .download-wrapper p {
+      text-align: center; } }

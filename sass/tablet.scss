@@ -1,0 +1,84 @@
+$textColorLight: #a3a4b0;
+
+@media screen and (max-width:768px) {
+    body {
+        header {
+
+            nav {
+                justify-content: space-around;
+                padding: 3% 0;
+                max-width: 100%;
+
+                .logo {
+                    height: 100%;
+                }
+
+                .burger {
+                    min-width: 60%;
+
+                    ul.navigation-wrapper {
+                        li a {
+                            font-size: 1.5vw;
+                        }
+                    }
+                }
+            }
+            
+            .welcome-text-wrapper {
+                width: 100%;
+
+                h1 {
+                    font-size: 2.5vw;
+                }
+
+                p {
+                    padding: 1% 8%;
+                    font-size: 1.8vw;
+                }
+            }
+
+            button {
+                padding: 10px 40px;
+            }
+        }
+
+        main {
+            section.properties-wrapper {
+                margin: 5% 0;
+            }
+
+            section.all-profiles {
+                padding: 0 6%;
+            }
+
+            section.download-application {
+                overflow: hidden;
+
+                .slider-wrapper {
+
+                    img {
+                        width: 60%;
+                    }
+
+                    .slider {
+                        .text-wrapper {
+                            p:nth-child(2) {
+                                font-size: 1.3vw;
+                            }
+                        }
+                    }
+
+                    .circles-wrapper {
+                        right: 16%;
+                    }
+                }
+
+                .download-wrapper {
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

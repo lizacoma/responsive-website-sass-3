@@ -1,0 +1,416 @@
+$backgroundColor: #313454;
+$redColor: #e84545;
+$textColorLight: #a3a4b0;
+$textColorDark: #3b3e41;
+$fontRaleway: 'Raleway',
+sans-serif;
+$fontSans: 'Open Sans',
+sans-serif;
+$fontCardo: 'Cardo',
+serif;
+
+@mixin flex ($justify: center, $align-items: stretch, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align-items;
+    flex-direction: $direction;
+}
+
+@mixin position($position: relative, $top: auto, $left: auto, $right: auto, $bottom: auto) {
+    position: $position;
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+}
+
+@mixin buttonStyle {
+    padding: 15px 60px;
+    background: $redColor;
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2%;
+}
+
+@mixin text ($font-family, $font-size, $text-align:left, $font-weight: normal, $text-transform: none) {
+    font-family: $font-family;
+    font-size: $font-size;
+    text-align: $text-align;
+    font-weight: $font-weight;
+    text-transform: $text-transform;
+}
+
+@mixin socialLinks ($borderColor:#c6cacc) {
+    i {
+        @include hover-transition;
+        padding: 10px;
+        width: 15px;
+        height: 15px;
+        font-size: 15px;
+        text-align: center;
+
+        color: $borderColor;
+        border: 1px solid $borderColor;
+
+        &:hover {
+            color: $redColor;
+            border: 1px solid $redColor;
+        }
+    }
+}
+
+@mixin hover-transition {
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+
+    header {
+        position: relative;
+
+        .img-wrapper {
+            position: relative;
+
+            div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: $backgroundColor;
+                opacity: 0.9;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        nav {
+            @include position(absolute, 0, 0, 0);
+            @include flex (space-between, center);
+
+            max-width: 60%;
+            margin: 0 auto;
+            padding: 2% 0;
+            border-bottom: 1px solid #ffffff47;
+
+            .logo {
+                display: block;
+                width: 20%;
+            }
+
+            .burger {
+                min-width: 50%;
+
+                .burger-img {
+                    display: none;
+                }
+
+                ul.navigation-wrapper {
+                    @include flex (space-between, center);
+
+                    li {
+                        display: flex;
+                        list-style-type: none;
+
+                        a {
+                            @include text($fontRaleway, 0.7vw, left, 600, uppercase);
+                            @include hover-transition;
+
+                            color: $textColorLight;
+                            text-decoration: none;
+                            white-space: nowrap;
+
+                            &:hover {
+                                color: $redColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .welcome-text-wrapper {
+            @include flex (center, stretch, column);
+            @include position(absolute, 50%, 50%);
+
+            color: white;
+            text-align: center;
+            transform: translate(-50%, -50%);
+
+            h1 {
+                @include text($fontSans, 3.5vw, center, normal, uppercase);
+            }
+
+            p {
+                @include text($fontRaleway, 1.2vw, center);
+                padding: 2% 0;
+            }
+        }
+
+        button {
+            @include position(absolute, auto, 50%, auto, 0);
+            @include buttonStyle;
+            @include hover-transition;
+            margin: 7% 0;
+            transform: translate(-50%);
+
+            &:hover {
+                background: #ef1a1a;
+            }
+        }
+    }
+
+    main {
+        section.properties-wrapper {
+            @include flex(center, flex-start);
+            flex-wrap: wrap;
+            margin: 5% 15%;
+
+            .property {
+                @include flex(center, center, column);
+                @include text($fontRaleway, 12px, center);
+                width: 260px;
+                margin: 3.5%;
+
+                .title {
+                    padding: 20px 10px 10px 10px;
+                    color: $textColorDark;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                p {
+                    color: $textColorLight;
+                    line-height: 1.5;
+                }
+            }
+        }
+
+        section.gallery {
+            @include flex;
+            flex-wrap: wrap;
+
+            .img-wrapper {
+                @include flex;
+                position: relative;
+                min-width: calc(25% - 4px);
+                max-width: 355px;
+                height: 265px;
+                margin: 1px;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .hidden {
+                @include flex (center, center, column);
+                @include text($fontRaleway, 11px);
+                @include hover-transition;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                background: $redColor;
+                opacity: 0;
+                color: white;
+
+                h3 {
+                    padding: 5px;
+                    text-transform: uppercase;
+                }
+            }
+
+            .hidden:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .all-profiles {
+            @include flex;
+            flex-wrap: wrap;
+            margin: 10% 0;
+
+            .profile-wrapper {
+                @include text($fontRaleway, 11px);
+                width: 200px;
+                padding: 15px;
+                color: $textColorDark;
+
+                .photo {
+                    width: 100%;
+                }
+
+                .name {
+                    padding: 15px 0 0 0;
+                    font-weight: 400;
+                    font-size: 20px;
+                }
+
+                .position {
+                    padding: 5px 0;
+                    color: $redColor;
+                    text-transform: uppercase;
+                }
+
+                .text {
+                    padding: 15px 0 0 0;
+                    line-height: 1.5;
+                }
+
+                .icons-wrapper {
+                    padding: 20px 0;
+                    @include socialLinks;
+                }
+            }
+        }
+
+        section.download-application {
+            .slider-wrapper {
+                position: relative;
+                display: flex;
+                background: #53354a;
+
+                img {
+                    width: 50%;
+                }
+
+                .slider {
+                    position: relative;
+                    width: 30%;
+                }
+
+                .text-wrapper {
+                    @include position(absolute, 0, 0);
+                    width: 100%;
+                    padding: 15%;
+
+                    color: white;
+
+                    opacity: 0;
+                    z-index: 1;
+
+                    -webkit-transition: opacity 1s;
+                    -moz-transition: opacity 1s;
+                    -o-transition: opacity 1s;
+                    transition: opacity 1s;
+
+                    p:nth-child(1) {
+                        @include text($fontCardo, 2vw, left, 400);
+                        padding: 5% 0;
+                        line-height: 1.3;
+                    }
+
+                    p:nth-child(2) {
+                        @include text ($fontRaleway, 0.7vw, left, 600, uppercase);
+                    }
+                }
+
+                .showing {
+                    opacity: 1;
+                    z-index: 2;
+                }
+            }
+
+            .circles-wrapper {
+                display: flex;
+                @include position(absolute, auto, auto, 30%, 15%);
+
+
+                .circle {
+                    width: 10px;
+                    height: 10px;
+                    margin: 4px;
+
+                    background: #755d6e;
+                    border-radius: 50%;
+                }
+
+                .showing {
+                    background: white;
+                }
+            }
+
+            .download-wrapper {
+                @include flex (center, center, column);
+
+                padding: 5%;
+                font-family: 'Raleway', sans-serif;
+                color: $textColorDark;
+
+                p:nth-child(1) {
+                    font-weight: lighter;
+                    font-size: 25px;
+
+                }
+
+                p:nth-child(2) {
+                    @include text($fontRaleway, 13px, center, bold, uppercase);
+                    margin: 1%;
+                }
+
+                button {
+                    margin: 1.5%;
+                    @include buttonStyle;
+                    @include hover-transition;
+
+                    &:hover {
+                        background: #ef1a1a;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        background: #3a3e64;
+        color: #888a9d;
+
+        .information-wrapper {
+            @include flex (space-around);
+
+            padding: 5% 10%;
+            font-family: 'Raleway', sans-serif;
+
+
+            .information-block-wrapper {
+                @include flex (center, stretch, column);
+                width: 300px;
+                @include text($fontRaleway, 13px, center);
+
+
+                p:nth-child(1) {
+                    padding: 15px;
+                    color: white;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                .icons-wrapper {
+                    @include socialLinks(white);
+                }
+            }
+
+        }
+
+        .tm-wrapper {
+            padding: 1%;
+            background: $backgroundColor;
+            color: #656670;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "test-work-2",
+  "version": "1.0.0",
+  "description": "test-work for Praid Ad Agency",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "indexBuild": "node-sass-chokidar ./sass/index.scss ./style/index.css --watch --use-polling --polling-interval 1000",
+    "tabletBuild": "node-sass-chokidar ./sass/tablet.scss ./style/tablet.css  --watch --use-polling --polling-interval 1000",
+    "mobileBuild": "node-sass-chokidar ./sass/mobile.scss ./style/mobile.css  --watch --use-polling --polling-interval 1000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass-chokidar": "^1.4.0"
+  }
+}

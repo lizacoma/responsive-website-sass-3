@@ -1,13 +1,19 @@
 const requestURL = 'https://jsonplaceholder.typicode.com/photos';
 const properties = document.querySelectorAll('div.property');
 
+
 const myId = (min, max) => {
   let id = min + Math.random() * (max - min + 1);
   return Math.round(id);
 }
 
 const sendRequest = (url) => {
-  return fetch(url).then(response => {
+  const headers = {
+    'Access-Control-Allow-Origin': 'https://github.com/'
+  };
+  return fetch(url, {
+    headers: headers
+  }).then(response => {
     return response.json();
   });
 };

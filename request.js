@@ -22,7 +22,7 @@ const sendRequest = (url) => {
 const addNewPicture = (data) => {
   properties.forEach(property => {
     let newData = data[myId(1, 300)];
-    consol.log(newData);
+    console.log(newData);
     property.querySelector('img').setAttribute('src', newData.thumbnailUrl);
     property.querySelector('.title').innerHTML = newData.title;
   });

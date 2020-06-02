@@ -9,7 +9,7 @@ const myId = (min, max) => {
 
 const sendRequest = (url) => {
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'jsonplaceholder.typicode.com',
     'Access-Control-Allow-Credentials': true
   };
   return fetch(url, {

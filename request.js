@@ -13,6 +13,7 @@ const sendRequest = (url) => {
     'Access-Control-Allow-Credentials': true
   };
   return fetch(url, {
+    mode: 'cors',
     headers: headers
   }).then(response => {
     return response.json();
